@@ -1,0 +1,31 @@
+/* 博客详情页专用样式 */
+.blog-content {
+    padding: 30;
+}
+/* 设置标题样式 */
+.blog-content h3 {
+    /* 标题水平居中 */
+    text-align: center;
+    /* 标题字体大小 */
+    font-size: 22px;
+    /* 标题加粗 */
+    font-weight: bold;
+    /* 按上右下左顺时针设置内边距 */
+    padding: 20px 10px 0 10px;
+}
+/* 设置时间样式 */
+.blog-content .date {
+    /* 水平居中 */
+    text-align: center;
+    /* 设置颜色 */
+    color: rgb(0,128,0);
+    /* 时间四个方向的内边距都为20px */
+    padding: 20px;
+}
+/* 设置段落样式 */
+.blog-content p {
+    /* 每段首行缩进2字符 */
+    text-indent: 2em;
+    /* 设置上下内边距为10px,左右为0 */
+    padding: 10px 0;
+}

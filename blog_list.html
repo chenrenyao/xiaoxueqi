@@ -1,0 +1,133 @@
+<!-- 博客列表页 -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>博客列表页</title>
+    <!-- ../来到上一级目录 -->
+    <link rel="stylesheet" href="C:\Users\PC\Desktop\博客\common.css">
+    <link rel="stylesheet" href="C:\Users\PC\Desktop\博客\blog_list.css">
+    <style>
+    .leaf {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    background-image: url('./树叶c.png');
+    background-size: cover;
+    z-index: 100; /* 确保树叶在顶部 */
+}
+
+.falling {
+    animation: fallingAnimation 4s linear forwards;
+}
+
+@keyframes fallingAnimation {
+    0% {
+        transform: translate(0, -50px) rotate(0deg);
+    }
+    100% {
+        transform: translateX(random(-50px, 50px)) translateY(500px) rotate(720deg);
+    }
+}
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <div class="nav">
+        <img src="C:\Users\PC\Desktop\博客\demo4.jpg" alt="小狗">
+        <span><p><strong>我的博客系统</strong></p></span>
+        <!-- 只是空白元素,用来将后面的超链接文本挤到右边去 -->
+        <div class="spacer"></div>
+        <a href="blog_list.html"><p><strong>主页</strong></p></a>
+        <a href="blog_edit.html"><p><strong>写博客</strong></p></a>
+        <a href="login.html"><p><strong>注销</strong></p></a>
+    </div>
+
+    <!-- 页面的主体部分 -->
+    <!-- .container 作为页面的版心 -->
+    <!-- 这个部分是在页面中 水平居中对齐的 左右两侧会留出一定的边距 这个东西很多网站都有 称为"版心" -->
+    <div class="container">
+        <!-- 左侧个人信息 -->
+        <div class="container-left">
+            <!-- 整个用户信息区 -->
+            <div class="card">
+                <!-- 用户的头像 -->
+                <img src="C:\Users\PC\Desktop\博客\demo1.jpg" alt="头像">
+                <!-- 用户名 -->
+                <h3>Yao的博客</h3>
+                <!-- gitee地址 -->
+                <a href="https://github.com/chenrenyao/cry.github.io">github地址</a>
+                <!-- 统计信息 -->
+                <div class="counter">
+                    <span>文章</span>
+                    <span>分类</span>
+                </div>               
+                <div class="counter">
+                    <!-- 两篇文章,一个分类 -->
+                    <span>2</span>
+                    <span>1</span>
+                </div>
+            </div>
+        </div>
+        <!-- 右侧内容详情 -->
+        <div class="container-right">
+            <!-- blog对应一个博客 -->
+            <div class="blog">
+                <!-- 博客标题 -->
+                <div class="title">我的第一篇博客</div>
+                <!-- 博客发布时间 -->
+                <div class="date">2024-07-02 12:00</div>
+                <!-- 博客摘要 -->
+                <div class="desc">
+                <!-- lorem测试 -->
+                <p align ="center">鲁迅《野草》文字摘抄</p>
+                <p>过去的生命已经死亡。我对于这死亡有大欢喜，因为我借此知道它曾经存活。死亡的生命已经朽腐。我对于这朽腐有大欢喜，因为我借此知道它还非空虚。
+                我怕我会这样：倘使我得到了谁的布施，我就要像兀鹰看见死尸一样，在四近徘徊，祝愿她的灭亡，给我亲自看见；或者咒诅她以外的一切全都灭亡，连我自己，因为我就应该得到咒诅。
+                </p>
+                </div>
+                <!-- ">>" 转义 -->
+                <a href="blog_detail.html?blogId=1">查看全文&gt;&gt; </a>
+            </div>
+            <div class="blog">
+                <!-- 博客标题 -->
+                <div class="title">我的第二篇博客</div>
+                <!-- 博客发布时间 -->
+                <div class="date">2024-07-03 14:00</div>
+                <!-- 博客摘要 -->
+                <div class="desc">
+                <!-- lorem测试 -->
+                <p align ="center">朱自清《背影》</p>
+                <p>我与父亲不相见已二年余了，我最不能忘记的是他的背影 。那年冬天，祖母死了，父亲的差使也交卸了，正是祸不单行的日子。我从北京到徐州打算跟着父亲奔丧回家。
+                到徐州见着父亲，看见满院狼藉的东西，又想起祖母，不禁簌簌地流下眼泪。父亲说：“事已如此，不必难过，好在天无绝人之路！”
+                </p>
+                </div>
+                <!-- 不能直接写大于号,因为大于号会被当做标签的一部分 ,写出转义字符&gt; -->
+                <a href="blog_detail2.html">查看全文&gt;&gt; </a>
+            </div>
+        </div>
+    </div>
+    
+    <div id="leaf-container"></div>
+    <script>
+    document.addEventListener('click', function(event) {
+        const leaf = document.createElement('div');
+        leaf.className = 'leaf';
+        document.getElementById('leaf-container').appendChild(leaf);
+    
+        // 设置树叶的初始位置
+        leaf.style.left = event.pageX + 'px';
+        leaf.style.top = event.pageY + 'px';
+    
+        // 添加动画类
+        leaf.classList.add('falling');
+    
+        // 移除树叶，以避免页面中树叶数量过多
+        leaf.addEventListener('animationend', function() {
+            leaf.remove();
+        });
+    });
+    </script>
+</body>
+</html>
